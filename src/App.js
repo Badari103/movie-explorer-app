@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import PopularMovies from './containers/popularMovies';
+import MovieDetails from './containers/movieDetails';
+import Layout from './components/layout';
+// import { useDispatch } from 'react-redux';
+// import { useEffect } from 'react';
+// import { getGeneres } from './redux/genre';
+
 
 function App() {
+  // const dispatch= useDispatch();
+  // useEffect(()=>{
+  //   dispatch(getGeneres());
+  // },[dispatch]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Layout>
+      <Routes>
+        <Route path='/' element={<PopularMovies />} ></Route>
+        <Route path='/movie/:id' element={<MovieDetails />} ></Route>
+      </Routes>
+      </Layout>
     </div>
   );
 }
